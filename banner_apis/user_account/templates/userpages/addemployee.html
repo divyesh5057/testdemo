@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% include 'userpages/basic/head.html' %}
+  <link rel="stylesheet" href="/static/mycss.css">
+</head>
+<body>
+  <div class="container-scroller"> 
+    {% include 'userpages/basic/nav.html' %}
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      {% include 'userpages/basic/sidebar.html' %}
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-12 grid-margin">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">{% if id > 0 %} Update Data {% else %} Add New {% endif %}</h4>
+                  <form method="post" class="form-sample" enctype="multipart/form-data">{% csrf_token %}
+                    <p class="card-description">
+                      User info
+                    </p>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Username </label>
+                          <div class="col-sm-9">
+                            <input type="text" name="username" placeholder="fname" value= "{{data.username}}" required name="fname" class="form-control" />
+                          </div>
+                        </div>
+                      </div>
+                      <!-- <div class="col-md-6"> -->
+                        <!-- <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Last Name</label>
+                          <div class="col-sm-9">
+                            <input type="text" placeholder="lname" value="{{update_data.lname}}" required name="lname" class="form-control" />
+                          </div>
+                        </div> -->
+                      <!-- </div> -->
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Gender</label>
+                          <div class="col-sm-9">
+                            <select name="gender" class="form-control">
+                              {% if update_data.gender == "M" %}
+                                <option selected value="M">Male</option>
+                                <option value="F">Female</option>
+                              {% elif update_data.gender == "F"  %}
+                                <option value="M">Male</option>
+                                <option selected value="F">Female</option>
+                              {% else %}
+                                <option value="M">Male</option>
+                                <option value="F">Female</option>
+                              {% endif %}
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- <div class="col-md-6">
+                        <div class="form-group row">
+                          {% if update_data.pk > 0 %} <p class="py-1"><img src="/media/{{update_data.profile}}" style="border-radius:50%" width="50px" height="50px" alt="image"/></p>{% endif %}
+                          <label class="col-sm-3 col-form-label">Profile</label>
+                          <div class="col-sm-9">
+                            <input type="file" name="profile" class="form-control"/>
+                          </div>
+                        </div>
+                      </div> -->
+
+                    </div>
+                    <div class="row">
+                      <div class="col-md-4">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Mobile</label>
+                          <div class="col-sm-9">
+                            <input type="number" name="phone_number" value="{{data.phone_number}}" name="mobile" required placeholder="6545526352" class="form-control" />
+                          </div>
+                        </div>
+                      </div>
+                      <!-- <div class="col-md-4">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Designation</label>
+                          <div class="col-sm-9">
+                            <input type="text" value="{{update_data.designation}}" name="designation" required placeholder="python developer" class="form-control" />
+                          </div>
+                        </div>
+                      </div> -->     
+                    </div>
+                    <div class="row">
+                      <div class="col-md-4">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">User Type</label>
+                          <div class="col-sm-9">
+                            <select name="emp_type"  class="form-control">
+                                <option  value="true">Admin</option>
+                                <option selected value="false">User</option>
+                               
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Email</label>
+                          <div class="col-sm-9">
+                            <input type="email" name="email" value="{{data.email}}" name="email" required placeholder="abc@gmail.com" class="form-control" />
+                          </div>
+                        </div>
+                      </div>
+                    {% if id > 0 %}
+                    {% else %}
+                      
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Password</label>
+                            <div class="col-sm-9">
+                              <input type="password"  name="password" value="{{data.password}}" name="password" required placeholder="123" class="form-control" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Confirm  Password</label>
+                            <div class="col-sm-9">
+                              <input type="password" name="password2" value="{{data.password2}}" name="password" required placeholder="123" class="form-control" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    {% endif %}
+
+                    
+                    {% if id > 0 %}
+                    <button type="submit" class="btn btn-primary me-2">Update</button>
+                    <a href="{% url 'frontend:showemployee' %}"><button type="button" class="btn btn-light">Cancel</button></a>
+                    {% else %}
+                    <button type="submit" class="btn btn-primary me-2">Submit</button>
+                    <button type="reset" class="btn btn-light">Reset</button>
+                    {% endif %}
+                    
+                  </form>
+                </div>
+              </div>
+            </div>
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        {% include 'userpages/basic/footer.html' %}
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+
+  {% include 'userpages/basic/js_script.html' %}
+  {% if messages %}
+  {% for message in messages %}
+
+      <script>
+        Swal.fire({
+        position: "top-end",
+        type: `{{message.extra_tags}}`,
+        title: `{{ message }}`,
+        showConfirmButton: !1,
+        timer: 1500
+      })
+      </script>
+  {% endfor %}
+  {% endif %}
+</body>
+
+</html>
+

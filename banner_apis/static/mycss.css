@@ -1,0 +1,133 @@
+
+  
+  .bubble-inner-dot {
+   
+    display: block;
+    /* text-align: center; */
+    /* opacity: 1; */
+    background-color: rgba(10, 241, 21, 0.945);
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    
+  }
+  /* -webkit-animation: bubble-pulse 1.5s linear infinite;
+  -moz-animation: bubble-pulse 1.5s linear infinite;
+  -o-animation: bubble-pulse 1.5s linear infinite;
+  animation: bubble-pulse 1.5s linear infinite */
+  .bubble-inner-dot1 {
+   
+    display: block;
+    /* text-align: center; */
+    /* opacity: 1; */
+    background-color: rgba(255, 0, 0, 0.4);
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+
+  }
+  /* background-color: rgba(255, 0, 0, 0.4); */
+  
+  @-webkit-keyframes bubble-pulse {
+    0% {
+      transform: scale(1);
+      opacity: .75
+    }
+    25% {
+      transform: scale(1);
+      opacity: .75
+    }
+    100% {
+      transform: scale(2.5);
+      opacity: 0
+    }
+  }
+  
+  @keyframes bubble-pulse {
+    0% {
+      transform: scale(1);
+      opacity: .75
+    }
+    25% {
+      transform: scale(1);
+      opacity: .75
+    }
+    100% {
+      transform: scale(2.5);
+      opacity: 0
+    }
+  }
+  
+  @-moz-keyframes bubble-pulse {
+    0% {
+      transform: scale(1);
+      opacity: .75
+    }
+    25% {
+      transform: scale(1);
+      opacity: .75
+    }
+    100% {
+      transform: scale(2.5);
+      opacity: 0
+    }
+  }
+  
+  @-o-keyframes bubble-pulse {
+    0% {
+      transform: scale(1);
+      opacity: .75
+    }
+    25% {
+      transform: scale(1);
+      opacity: .75
+    }
+    100% {
+      transform: scale(2.5);
+      opacity: 0
+    }
+  }
+  
+  
+  /*Center-div (Not part of the symbol)*/
+  
+  #center-div {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    width: 14px;
+    height: 14px;
+  }
+
+
+.screenshow{
+  color: #111111;
+  text-decoration: none;
+
+  }
+ .screenshow:hover {
+    color:#00A0C6; 
+    text-decoration:none; 
+    cursor:pointer;  
+}
+
+.screenshotimg{
+   object-fit:contain;
+   max-height: 100%;
+   max-width: 100%;    
+   display: block;
+   margin: auto auto;
+}
+
+
+.pswp__caption__center {text-align: center;}
+figure {
+  display: inline-block;
+  width: 100%;
+  /* float: left; */
+}
+.screenshotimg {width: 100%;}
+.spacer {height: 5em;}

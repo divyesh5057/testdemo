@@ -1,0 +1,66 @@
+<!-- partial:partials/_sidebar.html -->
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'frontend:dashboard' %}">
+          <i class="mdi mdi-grid-large menu-icon"></i>
+          <span class="menu-title">Dashboard</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="collapse" href="#Employees" aria-expanded="false" aria-controls="Employees">
+          <i class="menu-icon mdi mdi-account-circle-outline"></i>
+          <span class="menu-title">Users</span>
+          <i class="menu-arrow"></i> 
+        </a>
+        <div class="collapse" id="Employees">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" href="{% url 'frontend:addemployee' %}">Add User</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{% url 'frontend:showemployee' %}">Show User</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="collapse" href="#Projects" aria-expanded="false" aria-controls="Projects">
+          <i class="menu-icon mdi mdi-layers-outline"></i>
+          <span class="menu-title">Category</span>
+          <i class="menu-arrow"></i> 
+        </a>
+        <div class="collapse" id="Projects">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" href="{% url 'frontend:addproject' %}">Add Category</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{% url 'frontend:showproject' %}">Show Category</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="collapse" href="#Task" aria-expanded="false" aria-controls="Task">
+          <i class="menu-icon mdi mdi-card-text-outline"></i>
+          <span class="menu-title">Banner's</span>
+          <i class="menu-arrow"></i> 
+        </a>
+        <div class="collapse" id="Task">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" href="{% url 'frontend:addtask' %}">Add Banner</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{% url 'frontend:showtask' %}">Show Banner</a></li>
+          </ul>
+        </div>
+      </li>
+      {% if request.session.type == "Admin" %}
+      
+      {% endif %}
+
+      {% if request.session.type == "Admin" or request.session.type == "Project Manager" %}
+      
+
+      {% endif %}
+      
+      {% if request.session.type == "Admin" or request.session.type == "Project Manager" or request.session.type == "Team Leader" or request.session.type == "Senior Developer" %}
+
+
+      
+      {% endif %}
+
+    </ul>
+  </nav>
+  <!-- partial -->

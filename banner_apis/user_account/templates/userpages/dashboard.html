@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% include 'userpages/basic/head.html' %}
+  <link rel="stylesheet" href="/static/mycss.css">
+</head>
+<body>
+  <div class="container-scroller"> 
+    {% include 'userpages/basic/nav.html' %}
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      {% include 'userpages/basic/sidebar.html' %}
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="home-tab">
+                
+                <div class="tab-content tab-content-basic">
+                  <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview"> 
+                     
+                    <div class="row">
+                      <!-- <div class="col-lg-2 d-flex flex-column">
+                        <div class="row flex-grow">
+                          <div class="col-md-6 col-lg-12 grid-margin stretch-card">
+                            <div class="card bg-primary card-rounded">
+                              <a href="{% url 'frontend:showproject' %}" style="text-decoration:none;">
+                              <div class="card-body pb-0">
+                                <h4 class="card-title card-title-dash text-white mb-4">Total Category</h4>
+                                <div class="row">
+                                  <div class="col-sm-12">
+                                    <p class="status-summary-ight-white mb-1">Closed Value</p>
+                                    <h2 class="text-light">{{total_project}}</h2>
+                                  </div>
+                                  
+                                </div>
+                              </div>
+                            </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div> -->
+                      <div class="col-lg-2 d-flex flex-column">
+                        <div class="row flex-grow">
+                          <div class="col-md-6 col-lg-12 grid-margin stretch-card">
+                            <div class="card bg-success card-rounded">
+                              <a href="{% url 'frontend:showproject' %}" style="text-decoration:none;">
+                              <div class="card-body pb-0">
+                                <h4 class="card-title card-title-dash text-white mb-4">Total Category</h4>
+                                <div class="row">
+                                  <div class="col-sm-12">
+                                    <p class="status-summary-ight-white mb-1">Closed Value</p>
+                                    <h2 class="text-light">{{total_category}}</h2>
+                                  </div>
+                                  
+                                </div>
+                              </div>
+                            </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-2 d-flex flex-column">
+                        <div class="row flex-grow">
+                          <div class="col-md-6 col-lg-12 grid-margin stretch-card">
+                            <div class="card bg-danger card-rounded">
+                              <a href="{% url 'frontend:showtask' %}" style="text-decoration:none;">
+                              <div class="card-body pb-0">
+                                <h4 class="card-title card-title-dash text-white mb-4">Total Banners</h4>
+                                <div class="row">
+                                  <div class="col-sm-12">
+                                    <p class="status-summary-ight-white mb-1">Closed Value</p>
+                                    <h2 class="text-light">{{total_banner}}</h2>
+                                  </div>
+                                  
+                                </div>
+                              </div>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- <div class="col-lg-2 d-flex flex-column">
+                        <div class="row flex-grow">
+                          <div class="col-md-6 col-lg-12 grid-margin stretch-card">
+                            <div class="card bg-warning card-rounded">
+                              <a href="{% url 'frontend:showproject' %}" style="text-decoration:none;">
+                              <div class="card-body pb-0">
+                                <h4 class="card-title card-title-dash text-white mb-4">Completed Task</h4>
+                                <div class="row">
+                                  <div class="col-sm-12">
+                                    <p class="status-summary-ight-white mb-1">Closed Value</p>
+                                    <h2 class="text-light">{{completed_task}}</h2>
+                                  </div>
+                                  
+                                </div>
+                              </div>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div> -->
+                      <div class="col-lg-2 d-flex flex-column">
+                        
+                        <div class="row flex-grow">
+                          
+                          <div class="col-md-6 col-lg-12 grid-margin stretch-card">
+                            <div class="card bg-info card-rounded">
+                              <a href="{% url 'frontend:showemployee' %}" style="text-decoration:none;">
+                              <div class="card-body pb-0">
+                                <h4 class="card-title card-title-dash text-white mb-4">Total Users</h4>
+                                <div class="row">
+                                  <div class="col-sm-12">
+                                    <p class="status-summary-ight-white mb-1">Closed Value</p>
+                                    <h2 class="text-light">{{total_user}}</h2>
+                                  </div>
+                                  
+                                </div>
+                              </div>
+                            </a>
+                            </div>
+                          </div>
+                        
+                        </div>
+                      
+                      </div>
+                      <!-- <div class="col-lg-2 d-flex flex-column">
+                        <div class="row flex-grow">
+                          <div class="col-md-6 col-lg-12 grid-margin stretch-card">
+                            <div class="card bg-dark card-rounded">
+                              <a href="{% url 'frontend:showemployee' %}" style="text-decoration:none;">
+                              <div class="card-body pb-0">
+                                <h4 class="card-title card-title-dash text-white mb-4">Active Employee</h4>
+                                <div class="row">
+                                  <div class="col-sm-12">
+                                    <p class="status-summary-ight-white mb-1">Closed Value</p>
+                                    <h2 class="text-light">{{active_emp}}</h2>
+                                  </div>
+                                  
+                                </div>
+                              </div>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div> -->
+
+
+
+                    </div>
+                    <div class="row">
+                      <div class="col-lg-12 d-flex flex-column">
+                        <div class="row flex-grow">
+                          <div class="col-12 grid-margin stretch-card">
+                            <div class="card card-rounded">
+                              <div class="card-body">
+                                <div class="d-sm-flex justify-content-between align-items-start">
+                                  <div>
+                                    <h4 class="card-title card-title-dash">Todays Update</h4>
+                                   <p class="card-subtitle card-subtitle-dash">Click here for more information</p>
+                                  </div>
+                                  <div>
+                                    <!-- right side for  -->
+                                  </div>
+                                </div>
+
+                                <div class="row text-center">
+                                  <!-- Add here  -->
+                                  
+                                  {% for ed in emp_data %}
+                                  {% if request.session.type == "Admin" or request.session.type == "Project Manager" %}
+
+                                  <div class="col-md-3">
+                                    <a class="screenshow" href="{% url 'frontend:screenshot' ed.id %}">
+                                    <div class="card card-rounded" style="padding-top: 10px;">
+                                      <div class="card-body bg-light">
+                                          <img src="/media/{{ed.profile}}" style="border-radius: 70%">
+                                          <div class="row ">
+                                            <div class="col-7">
+                                              <p class="text-small mb-2">{{ed.fname.title}} {{ed.lname.title}}</p>
+                                            </div>
+                                            <div class="col-5 text-small mb-1"> 
+                                              {% if ed.login_status == "OFF"  %}
+                                              <p style="float:left;">Offline</p><span style="margin-left: 45px;margin-top: 5px;" class="bubble-inner-dot1"></span>
+                                              {% elif ed.login_status == "ON" %}
+                                              <p style="float:left;">Online</p><span style="margin-left: 45px;margin-top: 5px;" class="bubble-inner-dot"></span>
+                                              {% else %}
+                                              <p style="float:left;">Idle</p><span style="margin-left: 45px;margin-top: 5px;" class="bubble-inner-dot1"></span>
+                                              {% endif %}
+                                              
+                                            </div>
+                                            <div class="col-6 ">
+                                              <span class="mdi mdi-mouse"> 
+                                                {% if ed.task|length > 0 %} {{ed.task.mouseclick}} {% else %} 0 {% endif %}
+                                              </span>
+                                            </div>
+                                            <div class="col-6">
+                                              <span class="mdi mdi-keyboard">
+                                                {% if ed.task|length > 0 %} {{ed.task.keyboardlick}} {% else %} 0 {% endif %}
+                                              </span>
+                                            </div>
+                                          </div>
+                                      </div>
+                                    </div>
+                                    </a>
+                                  </div>
+                                  
+                                  {% elif ed.id == request.session.id %}
+
+                                  <div class="col-md-3">
+                                    <a class="screenshow" href="{% url 'frontend:screenshot' ed.id %}">
+                                    <div class="card card-rounded" style="padding-top: 10px;">
+                                      <div class="card-body bg-light">
+                                          <img src="/media/{{ed.profile}}" style="border-radius: 70%">
+                                          <div class="row ">
+                                            <div class="col-7">
+                                              <p class="text-small mb-2">{{ed.fname.title}} {{ed.lname.title}}</p>
+                                            </div>
+                                            <div class="col-5 text-small mb-1"> 
+                                              {% if ed.login_status == "OFF"  %}
+                                              <p style="float:left;">Offline</p><span style="margin-left: 45px;margin-top: 5px;" class="bubble-inner-dot1"></span>
+                                              {% elif ed.login_status == "ON" %}
+                                              <p style="float:left;">Online</p><span style="margin-left: 45px;margin-top: 5px;" class="bubble-inner-dot"></span>
+                                              {% else %}
+                                              <p style="float:left;">Idle</p><span style="margin-left: 45px;margin-top: 5px;" class="bubble-inner-dot1"></span>
+                                              {% endif %}
+                                              
+                                            </div>
+                                            <div class="col-6 ">
+                                              <span class="mdi mdi-mouse"> 
+                                                {% if ed.task|length > 0 %} {{ed.task.mouseclick}} {% else %} 0 {% endif %}
+                                              </span>
+                                            </div>
+                                            <div class="col-6">
+                                              <span class="mdi mdi-keyboard">
+                                                {% if ed.task|length > 0 %} {{ed.task.keyboardlick}} {% else %} 0 {% endif %}
+                                              </span>
+                                            </div>
+                                          </div>
+                                      </div>
+                                    </div>
+                                    </a>
+                                  </div>
+                                  {% endif %}
+
+                                  {% endfor %}
+                                  
+
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        {% include 'userpages/basic/footer.html' %}
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+
+  {% include 'userpages/basic/js_script.html' %}
+  {% if messages %}
+  {% for message in messages %}
+
+      <script>
+        Swal.fire({
+        position: "top-end",
+        type: `{{message.extra_tags}}`,
+        title: `{{ message }}`,
+        showConfirmButton: !1,
+        timer: 1500
+      })
+      </script>
+  {% endfor %}
+  {% endif %}
+</body>
+
+</html>
+

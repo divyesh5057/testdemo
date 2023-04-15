@@ -1,0 +1,205 @@
+<!-- <!DOCTYPE html>
+<html>
+
+<head>
+    <title>Multiple Images</title>
+</head>
+
+<body> -->
+
+<!-- <div class="card">
+        <div class="card-body">
+
+            <div class="row">
+                <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+                    {% for i in data %}
+                <img
+                    src="{{i.banner_img}}"
+                    class="img-responsive"
+                    alt="Boat on Calm Water"
+                    width="307" height="240"/
+                />
+            {% endfor %}
+            
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+<!-- <div class="card">
+        <div class="card-body">
+            <div class="d-sm-flex justify-content-between align-items-start">
+                <div>
+                    <h4 class="card-title card-title-dash">User Data</h4>
+
+                </div>
+                <div>
+                    <a href="{% url 'frontend:addemployee' %}"><button type="button"
+                            class="btn btn-outline-info btn-rounded btn-icon btn-sm">Add New
+                            <i class="mdi mdi-account-plus"></i>
+                        </button></a>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <th>
+                            <tr>Category</tr>
+                        </th>
+                    </thead>
+                    <tbody>
+                        {% for i in data %}
+                        <tr>
+                            <td>{{i.banner_img}}</td>
+                            <td>
+                                <a href="{% url 'frontend:updateemployee' i.id  %}?username={{ i.username }}email={{i.email}}""><button type="
+                                    button" class="btn btn-outline-success btn-icon-text btn-sm"> Edit<i
+                                        class="mdi mdi-tooltip-edit btn-icon-append"></i></button></a>
+
+                                <a id="callapi" href="{% url 'frontend:deleteemployee' i.id %}">
+                                    <button type="button"
+                                        class="btn btn-outline-danger btn-icon-text btn-sm kt_sweetalert_demo_6">
+                                        Delete<i class="mdi mdi-delete btn-icon-delete"> </i></button></a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+
+</body>
+
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% include 'userpages/basic/head.html' %}
+    <link rel="stylesheet" href="/static/mycss.css">
+</head>
+
+<body>
+    <div class="container-scroller">
+        {% include 'userpages/basic/nav.html' %}
+        <!-- partial -->
+        <div class="container-fluid page-body-wrapper">
+            {% include 'userpages/basic/sidebar.html' %}
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    <div class="row">
+                        <div class="col-lg-12 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-sm-flex justify-content-between align-items-start">
+                                        <div>
+                                            <h4 class="card-title card-title-dash">Banner Data</h4>
+
+                                        </div>
+                                        <div>
+                                            <a href="{% url 'frontend:addtask' %}"><button type="button"
+                                                    class="btn btn-outline-info btn-rounded btn-icon btn-sm">Add New
+                                                    <i class="mdi mdi-account-plus"></i>
+                                                </button></a>
+                                        </div>
+                                    </div>
+                                    <div class="table-responsive">
+
+                                        <table>
+                                            <thead>
+                                                <th>
+                                                    <tr>Banner's</tr>
+                                                </th>
+                                            </thead>
+                                            <tbody>
+
+                                                <div class="row">
+                                                    {% for i in data %}
+
+                                                    <div class="col">
+                                                        <div class="card" style="width: 18rem ">
+                                                            <img class="card-img-top" src="{{i.banner_img}}"
+                                                                alt="Card image cap">
+                                                            <div class="card-body">
+                                                                <a href="{% url 'frontend:updateimage' i.id  %}"
+                                                                    class="btn btn-primary">Edit</a>
+                                                                <a href="{% url 'frontend:deleteimg' i.id %}"
+                                                                    class="btn btn-danger">Delete</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    {% endfor %}
+
+                                                </div>
+
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- content-wrapper ends -->
+                    <!-- partial:partials/_footer.html -->
+                    {% include 'userpages/basic/footer.html' %}
+                    <!-- partial -->
+                </div>
+                <!-- main-panel ends -->
+            </div>
+            <!-- page-body-wrapper ends -->
+        </div>
+        <!-- container-scroller -->
+
+        {% include 'userpages/basic/js_script.html' %}
+        {% if messages %}
+        {% for message in messages %}
+
+        {% if message.extra_tags == 'deletesuccess' %}
+        <script>Swal.fire("Deleted!", "{{message}}", "success")</script>
+
+        {% elif message.extra_tags == 'deleteerror' %}
+        <script>Swal.fire("Not Deleted!", "{{message}}", "error")</script>
+        {% else %}
+
+        <script>
+            Swal.fire({
+                position: "top-end",
+                type: `{{message.extra_tags}}`,
+                title: `{{ message }}`,
+                showConfirmButton: !1,
+                timer: 1500
+            })
+        </script>
+
+        {% endif %}
+        {% endfor %}
+        {% endif %}
+
+        <!-- <script>
+      $(".kt_sweetalert_demo_6").click(function (e) {
+        Swal.fire({
+          title: "Are you sure?",
+          text: "You won't be able to revert this!",
+          type: "warning",
+          showCancelButton: !0,
+          confirmButtonColor: "#34c38f",
+          cancelButtonColor: "#f46a6a",
+          confirmButtonText: "Yes, delete it!"
+        }).then(function (t) {
+          // $('#callapi').click();
+          location.href = $('#callapi').attr('href');
+        })
+
+      })
+    </script> -->
+
+        <!-- Swal.fire("Deleted!", "Your file has been deleted.", "success")  -->
+</body>
+
+</html>

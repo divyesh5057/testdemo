@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% include 'userpages/basic/head.html' %}
+  <link rel="stylesheet" href="/static/mycss.css">
+</head>
+
+<body>
+  <div class="container-scroller">
+    {% include 'userpages/basic/nav.html' %}
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      {% include 'userpages/basic/sidebar.html' %}
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-lg-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-sm-flex justify-content-between align-items-start">
+                    <div>
+                      <h4 class="card-title card-title-dash">Banner Data</h4>
+                      
+                    </div>
+                    <div>
+                      <!-- right side for  -->
+                      <a href="{% url 'frontend:addtask' %}"><button type="button"
+                          class="btn btn-outline-info btn-rounded btn-icon btn-sm">Add New
+                          <i class="mdi mdi-account-plus"></i>
+                        </button></a>
+                    </div>
+                  </div>
+                  <div class="table-responsive">
+                    <table class="table table-striped" >
+                      <thead>
+                        <tr>
+                          <th>Category</th>
+                          <th>Banner Image</th>
+                          <!-- <th>Task Assign</th>
+                          <th>Duration</th>
+                          <th>Date</th>
+                          <th>Status</th>
+                          <th>Action</th> -->
+                        </tr>
+                      </thead>
+                      <tbody >
+                        {% for i in all_task_data %}
+                        
+                        <tr>
+                          <td>{{i }}</td>
+                          <!-- <td><img src="/mediafiles/{{i.banner_img}}" alt="img" ></td> -->
+                        
+                          <td>
+                            <a href="{% url 'frontend:image' %}?id={{i}}"><button type="button"
+                              class="btn btn-outline-info btn-rounded btn-icon btn-sm">View all
+                              <i ></i>
+                            </button></a>
+                          </td>
+                          
+      
+                        </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+                  <br>
+                  <nav aria-label="Page navigation example" style="margin-left: 70%;" >
+                    <ul class="pagination">
+                      {% if all_task_data.has_previous %}
+                      <li class="page-item"><a class="page-link" href="/user_account/show-task/?page=1">First</a></li>
+                      <li class="page-item"><a class="page-link" href="/user_account/show-task/?page={{all_task_data.previous_page_number}}">Previous</a></li>
+
+                      {%endif%}
+                      {% for n in totalpagenumber %}
+                      <li class="page-item"><a class="page-link" href="/user_account/show-task/?page={{n}}">{{n}}</a></li>
+                      {% endfor %}
+                      {% if all_task_data.has_next %}
+                      <li class="page-item"><a class="page-link" href="/user_account/show-task/?page={{lastpage}}">Last</a></li>
+
+                      <li class="page-item"><a class="page-link" href="/user_account/show-task/?page={{all_task_data.next_page_number}}">Next</a></li>
+                      {%endif%}
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- content-wrapper ends -->
+          <!-- partial:partials/_footer.html -->
+          {% include 'userpages/basic/footer.html' %}
+          <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+
+    {% include 'userpages/basic/js_script.html' %}
+    {% if messages %}
+    {% for message in messages %}
+
+    {% if message.extra_tags == 'deletesuccess' %}
+    <script>Swal.fire("Deleted!", "{{message}}", "success")</script>
+
+    {% elif message.extra_tags == 'deleteerror' %}
+    <script>Swal.fire("Not Deleted!", "{{message}}", "error")</script>
+    {% else %}
+
+    <script>
+      Swal.fire({
+        position: "top-end",
+        type: `{{message.extra_tags}}`,
+        title: `{{ message }}`,
+        showConfirmButton: !1,
+        timer: 1500
+      })
+    </script>
+
+    {% endif %}
+    {% endfor %}
+    {% endif %}
+
+    <script>
+      $(".kt_sweetalert_demo_6").click(function (e) {
+        Swal.fire({
+          title: "Are you sure?",
+          text: "You won't be able to revert this!",
+          type: "warning",
+          showCancelButton: !0,
+          confirmButtonColor: "#34c38f",
+          cancelButtonColor: "#f46a6a",
+          confirmButtonText: "Yes, delete it!"
+        }).then(function (t) {
+          // $('#callapi').click();
+          location.href = $('#callapi').attr('href');
+        })
+
+      })
+    </script>
+
+    <!-- Swal.fire("Deleted!", "Your file has been deleted.", "success")  -->
+</body>
+
+</html>
